@@ -1,0 +1,134 @@
+*,
+::before,
+::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+}
+
+.intro {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+}
+
+.intro__media {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: #ccc;
+}
+
+.intro__media::before{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    width: 100%;
+    height: 100%;
+    content: '';
+    background-color: rgba(0, 0, 0, .4);
+}
+
+.intro__media-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    object-fit: cover;
+    transform: translate(-50%, -50%);
+}
+
+.intro__content {
+    width: 100%;
+    z-index: 10;
+    text-align: center;
+}
+
+.content__head{
+    height: 25vh;
+}
+
+.content__head img{
+    animation: 10s rotate infinite;
+    height: 30vh;
+}
+
+@keyframes rotate {
+    from{
+        transform: rotateY(0deg);
+    }
+    to{
+        transform: rotateY(360deg);
+    }
+}
+
+.content__body{
+    margin-top: 20vh;
+    height: 55vh;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+.content__body a{
+    display: inline-block;
+    text-decoration: none;
+    padding: 20px;
+    color: white;
+    border: 3px solid white;
+    font-size: 3vw;
+    margin-left: 3%;
+    border-radius: 100px;
+}
+
+.content__body a:hover{
+    border-color: skyblue;
+    color: deepskyblue;
+    transform: scale(1.1);
+    transition: 1.5s;
+}
+
+.content__body a:hover i{
+    animation: 2s rotate;
+}
+
+.AdminButton{
+    text-decoration: none;
+    position: absolute;
+    margin-left: 52vw;
+    margin-top: 1vh;
+    color: white;
+}
+
+.AdminButton:hover{
+    color: tomato;
+    animation: 1.5s;
+    transition: 1.5s;
+}
+
+.AdminButton:hover i{
+    color: black;
+    animation: 1.2s jump infinite;
+}
+
+@keyframes jump {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-8px);
+    }
+    60% {
+        transform: translateY(-4px);
+    }
+}
