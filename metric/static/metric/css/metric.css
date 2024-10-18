@@ -1,0 +1,227 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+h1, h2 {
+    text-align: center;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    -moz-user-select: none;
+}
+
+form {
+    width: 40vw;
+    border-radius: 30px;
+    margin: auto;
+    box-shadow: 0.5vw 1vh rgba(0, 0, 0, 0.1);
+}
+
+/*layout*/
+
+        /* header panel */
+    header {
+        width: 100%;
+        height: 3vh;
+        background-color: #333;
+        color: white;
+        padding: 10px 20px;
+        position: fixed;
+        top: 0;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        -webkit-user-select: none;
+    }
+
+    nav ul {
+        list-style: none;
+        margin-top: 0.5vh;
+        padding: 0;
+        display: flex;
+    }
+
+    nav ul li a {
+        color: white;
+        text-decoration: none;
+        font-size: 2vh;
+        padding: 1vw;
+    }
+
+    nav ul li a:hover {
+        text-decoration: underline;
+    }
+
+    .toggle-button {
+        background-color: rgba(0, 0, 0, 0);
+        color: white;
+        border: none;
+        cursor: pointer;
+    }
+
+    /*end header panel*/
+
+    /* left panel */
+    .sidebar {
+        height: 96vh;
+        margin-top: 4vh;
+        width: 250px;
+        background-color: #333;
+        padding-top: 20px;
+        position: fixed;
+        left: -250px;
+        transition: left 0.3s ease;
+    }
+
+    .sidebar a {
+        color: white;
+        text-decoration: none;
+        padding: 15px 20px;
+        display: block;
+    }
+
+    .sidebar a:hover {
+        background-color: #575757;
+    }
+
+    .open-sidebar .sidebar {
+        left: 0;
+    }
+
+    .open-sidebar .content {
+        margin-left: 250px;
+    }
+
+    /* end left panel */
+
+    .content {
+        margin-left: 0;
+        margin-top: 4vh;
+        padding: 20px;
+        flex-grow: 1;
+        transition: margin-left 0.3s ease;
+        align-items: center;
+    }
+
+/*end layout*/
+
+/*panel*/
+    .panel {
+        display: flex;
+        justify-content: space-between;
+        padding: 8px 16px;
+        align-items: center;
+        background-color: #fff;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        margin-bottom: 1vh;
+    }
+
+    .panel .serch-box {
+        display: flex;
+        align-items: center;
+    }
+
+    .panel a {
+        text-decoration: none;
+        padding: 8px 16px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    .panel a:hover {
+        background-color: #0056b3;
+    }
+/*end panel*/
+
+/*table*/
+    table, tr, td {
+        margin: auto;
+        text-align: center;
+        border-collapse: collapse;
+    }
+
+    .table_header, .table_header td {
+        border: 1px solid black;
+        padding: 15px 25px;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+        -moz-user-select: none;
+    }
+
+    .table_value, .table_value td {
+        border: 1px solid black;
+        padding: 15px 25px;
+    }
+
+    .table_button_edit, .table_button_trash {
+        display: inline-block;
+        text-decoration: none;
+        font-size: 1.5vw;
+        color: black;
+        margin-left: 0.5vw;
+    }
+
+    .table_button_edit:hover {
+        color: green;
+        transform: scale(1.2);
+        transition: 1s;
+    }
+
+    .table_button_trash:hover {
+        color: red;
+        animation: shake 1s infinite;
+    }
+/*end table*/
+
+/*form*/
+    .sub_form {
+        margin-left: 10%;
+        margin-top: 2vh;
+        margin-bottom: 2vh;
+    }
+
+    .button_save {
+        background-color: #008CBA;
+        border: none;
+        color: white;
+        padding: 1vh 2vw;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 1vw;
+        cursor: pointer;
+        border-radius: 12px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        transition: background-color 0.4s, transform 0.2s;
+        margin-bottom: 1vh;
+    }
+
+    .button_save:hover {
+        background-color: #005f73;
+        transform: scale(1.05);
+        color: white;
+    }
+
+    .table_name {
+        text-align: left;
+        padding: 10px 10px;
+    }
+/*end form*/
+
+/*animation*/
+    @keyframes shake {
+        0%, 100% {
+            transform: rotate(0) scale(1);
+        }
+        35%{
+            transform: rotate(-10deg) scale(1.2);
+        }
+        70%{
+            transform: rotate(10deg) scale(1.2);
+        }
+    }
+/*end animation*/

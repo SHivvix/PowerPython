@@ -1,10 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends 'main/layout.html' %}
+
+{% load static %}
+
+{% block Head %}
+    <link rel="stylesheet" href="{% static 'main/css/meters.css' %}">
+    <title>Справка</title>
+{% endblock %}
+
+{% block Body %}
+    <h1>Content Meters</h1>
+    <table>
+        <tr>
+            <td>Название 1</td>
+            <td>Название 2</td>
+            <td>Название 3</td>
+        </tr>
+        <tr>
+            <td>Значение 1</td>
+            <td>Значение 2</td>
+            <td>Значение 3</td>
+        </tr>
+    </table>
+{% endblock %}

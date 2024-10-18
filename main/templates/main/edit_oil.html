@@ -1,10 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'main/layout.html' %}
+{% load l10n %}
+{% load static %}
 
-</body>
-</html>
+{% block Head %}
+	<title>Редактирование</title>
+    <link rel="stylesheet" href="{% static 'main/css/oil_sub.css' %}">
+{% endblock %}
+
+{% block Body %}
+    <form method="POST">
+        {% csrf_token %}
+        <h1 style="margin-left: 14vw">Редактирование записи</h1>
+        <div class="content">
+            <p>
+                <label>Дата:</label>
+                <input class="input_data" type="date" name="date" required value="{{ oil.date|date:"Y-m-d" }}" />
+            </p>
+            <p>
+                <label>Кол-во тонн:</label>
+                <input class="input_data" type="number" step="any" required name="value" value="{{ oil.value|unlocalize }}" />
+            </p>
+            <input class="button_save" type="submit" value="Сохранить">
+        </div>
+    </form>
+{% endblock %}

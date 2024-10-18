@@ -1,0 +1,17 @@
+*,
+::before,
+::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+}
+
+table, tr, td{
+    padding: 15px 25px;
+    text-align: center;
+    border: 1px solid black;
+    border-collapse: collapse;
+}

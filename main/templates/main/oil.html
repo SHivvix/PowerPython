@@ -1,10 +1,42 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'main/layout.html' %}
 
-</body>
-</html>
+{% load static %}
+
+{% block Head %}
+    <link rel="stylesheet" href="{% static 'main/css/oil.css' %}">
+    <title>Нефть</title>
+{% endblock %}
+
+{% block Body %}
+    <a href="add_oil/" class="button_add"><i class="fa-solid fa-circle-plus"></i> Добавить запись в таблицу</a>
+    {% if oil.count > 0 %}
+        <table>
+            <tr style="-webkit-user-select: none; -moz-user-select: none; -ms-user-select: none;">
+                <td>Дата</td>
+                <td>Кол-во тонн</td>
+                <td></td>
+            </tr>
+            {% for val in oil %}
+                <tr class="table_value">
+                    <td>{{ val.date }}</td>
+                    <td>{{ val.value }}</td>
+                    <td>
+                        <a class="table_button_edit" href="edit_oil/{{ val.id }}" title="Редактировать">
+                            <i class="fa-solid fa-square-pen"></i>
+                        </a>
+                        <a class="table_button_trash" href="delete_oil/{{ val.id }}" title="Удалить">
+                            <i class="fa-solid fa-trash"></i>
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+        <form method="POST" style="margin-left: 45vw">
+            {% csrf_token %}
+            <input type="date" name="search" required>
+            <input type="submit" value="Искать">
+        </form>
+    {% else %}
+        <h1>Записей в таблице нет</h1>
+    {% endif %}
+{% endblock %}

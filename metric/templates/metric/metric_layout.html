@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'metric/css/metric.css' %}">
+    <script src="{% static 'metric/js/metric.js' %}"></script>
+    <script src="https://kit.fontawesome.com/8b031f6cb7.js" crossorigin="anonymous"></script>
+    {% block Head %}
+    {% endblock %}
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li>
+                    <button class="toggle-button" onclick="toggleSidebar()">☰</button>
+                </li>
+                <li>
+                    <a href="{% url 'index' %}">Главная</a>
+                </li>
+                <li>
+                    <a href="https://google.com">Отчеты</a>
+                </li>
+                <li>
+                    <a href="https://google.com">Справка</a>
+                </li>
+                <li>
+                    <a href="https://google.com">Нефть</a>
+                </li>
+                <li>
+                    <a href="http://bi/reports/powerbi/POWER">Статистика</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <!--Боковая навигационная понель-->
+    <div class="sidebar">
+        <a href="{% url 'index_meter' %}">Начальная страница</a>
+        <a href="{% url 'value' %}">Значения счетчиков</a>
+        <a href="https://google.com">Счетчики</a>
+        <a href="https://google.com">Места установки</a>
+        <a href="https://google.com">Договора</a>
+        <a href="https://google.com">Кеф. счетчиков</a>
+    </div>
+    <div class="content">
+        {% block Body %}
+        {% endblock %}
+    </div>
+</body>
+</html>

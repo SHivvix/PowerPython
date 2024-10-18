@@ -1,0 +1,54 @@
+{% extends 'metric/metric_layout.html' %}
+
+{% block Head %}
+
+{% endblock %}
+
+{% block Body %}
+    <h1>Значения счетчиков</h1>
+    <table>
+        <tr>
+            <td colspan="7">
+                <div class="panel">
+                    <a href="{% url 'value_add' %}">Добавить</a>
+                    <div class="serch-box">
+                        <input type="text" placeholder="Поиск...">
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr class="table_header">
+            <td>№ счетчика</td>
+            <td>Значение начальное</td>
+            <td>Значение конечное</td>
+            <td>Расход</td>
+            <td>Дата</td>
+            <td>Место установки</td>
+            <td></td>
+        </tr>
+        {% if value.count > 0 %}
+            {% for el in value %}
+                <tr class="table_value">
+                    <td>{{ el.meter }}</td>
+                    <td>{{ el.value_first }}</td>
+                    <td>{{ el.value_last }}</td>
+                    <td>{{ el.value_fact }}</td>
+                    <td>{{ el.date_add }}</td>
+                    <td>{{ el.palse }}</td>
+                    <td>
+                        <a class="table_button_edit" href="edit_value/{{ el.id }}" title="Редактировать">
+                            <i class="fa-solid fa-square-pen"></i>
+                        </a>
+                        <a class="table_button_trash" href="delete_value/{{ el.id }}" title="Удалить">
+                            <i class="fa-solid fa-trash"></i>
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+        {% else %}
+            <tr>
+                <td colspan="7"><h2>Значений нет.</h2></td>
+            </tr>
+        {% endif %}
+    </table>
+{% endblock %}

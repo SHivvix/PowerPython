@@ -1,0 +1,59 @@
+{% extends 'metric/metric_layout.html' %}
+{% block Head %}
+
+{% endblock %}
+{% block Body %}
+    <form method="POST">
+        {% csrf_token %}
+        <table class="form_table">
+            <tr>
+                <td colspan="2"><h1>Добавление записи</h1></td>
+            </tr>
+            <tr>
+                <td class="table_name">Номер счетчика:</td>
+                <td>
+                    <input list="number_meter" id="number" name="id_meter" required>
+                    <datalist id="number_meter">
+                        {% if meters.count > 0 %}
+                            {% for el in meters %}
+                                <option value="{{ el.id }}">{{ el.name }}</option>
+                            {% endfor %}
+                        {% endif %}
+                    </datalist>
+                </td>
+            </tr>
+            <tr>
+                <td class="table_name">Начальное значение:</td>
+                <td><input id="start_value" type="number" step="any"oninput="CalcValue()" name="start" required></td>
+            </tr>
+            <tr>
+                <td class="table_name">Конечное значение:</td>
+                <td><input id="end_value" type="number" step="any" oninput="CalcValue()" name="end" required></td>
+            </tr>
+            <tr>
+                <td class="table_name">Расход:</td>
+                <td><input id="value" type="number" step="any" name="fact" required readonly></td>
+            </tr>
+            <tr>
+                <td class="table_name">Дата:</td>
+                <td><input type="date" name="date" required></td>
+            </tr>
+            <tr>
+                <td class="table_name">Место установки:</td>
+                <td>
+                    <input list="id_plase" name="plase" required>
+                    <datalist id="id_plase">
+                        {% if plase.count > 0 %}
+                            {% for el_plase in plase %}
+                                <option value="{{ el_plase.id }}">{{ el_plase.name }}</option>
+                            {% endfor %}
+                        {% endif %}
+                    </datalist>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2"><input class="button_save" type="submit" value="Сохранить"></td>
+            </tr>
+        </table>
+    </form>
+{% endblock %}

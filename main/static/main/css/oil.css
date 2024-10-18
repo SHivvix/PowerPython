@@ -1,0 +1,90 @@
+*,
+::before,
+::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+}
+
+table, tr, td {
+    padding: 15px 25px;
+    text-align: center;
+    border: 1px solid black;
+    border-collapse: collapse;
+    margin-left: 35vw;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+}
+
+.table_button_edit, .table_button_trash {
+    display: inline-block;
+    text-decoration: none;
+    font-size: 1.5vw;
+    color: black;
+    margin-left: 0.5vw;
+}
+
+.table_button_edit:hover{
+    color: green;
+    transform: scale(1.2);
+    transition: 1s;
+}
+
+.table_button_trash:hover{
+    color: red;
+    animation: shake 1s infinite;
+}
+
+.button_add{
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 2vh;
+    margin-left: 35vw;
+    border: none;
+    background-color: #008CBA;
+    color: white;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 12px;
+    padding: 1vh 1vw;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    transition: background-color 0.4s, transform 0.2s;
+}
+
+.button_add:hover{
+    background-color: #005f73;
+    transform: scale(1.05);
+    color: white;
+}
+
+.button_add:hover i{
+    animation: 1s rotate;
+}
+
+.table_value:hover{
+    background-color: skyblue;
+}
+
+@keyframes shake {
+    0%, 100% {
+        transform: rotate(0) scale(1);
+}
+    35%{
+        transform: rotate(-10deg) scale(1.2);
+}
+    70%{
+        transform: rotate(10deg) scale(1.2);
+    }
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(-360deg);
+    }
+}
