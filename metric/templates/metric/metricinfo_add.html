@@ -1,0 +1,57 @@
+{% extends 'metric/metric_layout.html' %}
+{% block Head %}
+{% endblock %}
+{% block Body %}
+    <form method="POST">
+        {% csrf_token %}
+        <table class="form_table">
+            <tr>
+                <td colspan="2"><h1>Добавление записи</h1></td>
+            </tr>
+            <tr>
+                <td class="table_name">Номер счетчика:</td>
+                <td>
+                    <input name="number_meter" required>
+                </td>
+            </tr>
+            <tr>
+                <td class="table_name">Название:</td>
+                <td><input name="name" required></td>
+            </tr>
+            <tr>
+                <td class="table_name">Место установки:</td>
+                <td>
+                    <input list="location_list" name="plase" required>
+                    <datalist id="location_list">
+                        {% for el_loc in plase %}
+                            <option value="{{ el_loc.id }}">{{ el_loc.name }}</option>
+                        {% endfor %}
+                    </datalist>
+                </td>
+            </tr>
+            <tr>
+                <td class="table_name">Вид потребителя:</td>
+                <td>
+                    <input list="consumer_list" name="consumer" required>
+                    <datalist id="consumer_list">
+                        {% for el_cons in consumer %}
+                            <option value="{{ el_cons.id }}">{{ el_cons.name }}</option>
+                        {% endfor %}
+                    </datalist>
+                </td>
+            </tr>
+            <tr>
+                <td class="table_name">Авто сбор данных:</td>
+                <td>
+                    <select name="auto" required>
+                        <option value="True">Да</option>
+                        <option value="False">Нет</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2"><input class="button_save" type="submit" value="Сохранить"></td>
+            </tr>
+        </table>
+    </form>
+{% endblock %}
